@@ -25,8 +25,13 @@ class AlbumAdapter (val albumList: ArrayList<Album>): RecyclerView.Adapter<Album
         val album: Album = albumList[position]
         holder?.view?.txtAlbumName?.setText(album.name)
         holder?.view?.txtArtistName?.setText(album.artist)
-        val pokeImage = holder!!.view.imgAlbum
-        Picasso.with(holder.view.context).load(album.image).into(pokeImage)
+        val albumImage = holder!!.view.imgAlbum
+
+        if(album.image == "null"){
+            Picasso.with(holder.view.context).load(R.drawable.ic_launcher_f).into(albumImage)
+        }else{
+            Picasso.with(holder.view.context).load(album.image).into(albumImage)
+        }
     }
 
     class ViewHolder (val view: View): RecyclerView.ViewHolder(view){

@@ -40,10 +40,10 @@ class MainActivity : AppCompatActivity() {
 
                                 val albumName = jsonObject.getJSONObject("results").getJSONObject("albummatches").getJSONArray("album").getJSONObject(i).getString("name")
                                 val artistName = jsonObject.getJSONObject("results").getJSONObject("albummatches").getJSONArray("album").getJSONObject(i).getString("artist")
-                                val imgLink = jsonObject.getJSONObject("results").getJSONObject("albummatches").getJSONArray("album").getJSONObject(i).getJSONArray("image").getJSONObject(2).getString("#text")
+                                var imgLink = jsonObject.getJSONObject("results").getJSONObject("albummatches").getJSONArray("album").getJSONObject(i).getJSONArray("image").getJSONObject(2).getString("#text")
 
-                                if(imgLink == null){
-
+                                if(imgLink == ""){
+                                    imgLink = "null"
                                 }
 
                                 uiThread {
@@ -52,38 +52,6 @@ class MainActivity : AppCompatActivity() {
                                 }
                             }
                         }
-//
-//                        for(i in 1..50) {
-//                            doAsync {
-//                                val url = "http://ws.audioscrobbler.com/2.0/?method=album.search&album=$mEtName&api_key=2255fb38ce178d2811f68f9bbb971da1&format=json"
-//                                val request = Request.Builder().url(url).build()
-//                                val client = OkHttpClient.Builder()
-//                                        .connectTimeout(60, TimeUnit.SECONDS)
-//                                        .writeTimeout(120, TimeUnit.SECONDS)
-//                                        .readTimeout(60, TimeUnit.SECONDS)
-//                                        .build()
-//
-//                                client.newCall(request).enqueue(object : Callback {
-//                                    override fun onFailure(call: Call?, e: IOException?) {
-//                                        Log.e("Last.fm", "Failed to fetch album", e)
-//                                    }
-//
-//                                    override fun onResponse(call: Call?, response: Response?) {
-//                                        if (response != null && response.isSuccessful) {
-//                                            val json = response.body()?.string()
-//                                            val albumGson = GsonBuilder().create()
-//                                            val albumFeed = albumGson.fromJson(json, Return::class.java)
-//
-//                                            uiThread {
-//                                                mAlbumList.add(Album(albumFeed.results.albummatches.name, albumFeed.results.albummatches.artist, albumFeed.results.albummatches.image))
-//                                                val adapter = AlbumAdapter(mAlbumList)
-//                                                mRecyclerView?.adapter = adapter
-//                                            }
-//                                        }
-//                                    }
-//                                })
-//                            }
-//                        }
                         return true
                     }
                     return false
