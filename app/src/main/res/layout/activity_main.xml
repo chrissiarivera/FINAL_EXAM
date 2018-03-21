@@ -7,14 +7,14 @@
     tools:context="jalanechrissia.rivera.com.finalexam_rivera.MainActivity">
 
     <EditText
-        android:id="@+id/etAlbumName"
+        android:id="@+id/etName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Enter Album Name"
+        android:hint="Enter Album/Artist/Song Name"
         android:imeOptions="actionSearch"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
