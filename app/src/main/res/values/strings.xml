@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FinalExam_Rivera</string>
+    <string name="album_name">Album Name</string>
+    <string name="artist_name">Artist Name</string>
 </resources>
