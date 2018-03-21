@@ -6,11 +6,7 @@ import com.google.gson.annotations.SerializedName
  * Created by Jalane Chrissia on 21/03/2018.
  */
 data class Album(
-        val albumName: String,
+        val name: String,
         val artist: String,
-        val image: Image
-)
-
-data class Image(
-        @SerializedName("mega") val imageURL: String
+        @SerializedName("#text") val image: String = ""
 )
